@@ -161,7 +161,7 @@ class SCalculator(QtWidgets.QWidget):
     }
 
     def __init__(
-            self, parent=None, mode="scientific", sci_threshold=6, decimals=50, theme="block", history_view=False,
+            self, parent=None, mode="regular", sci_threshold=6, decimals=50, theme=None, history_view=False,
             rand_max=9999999, rand_min=0, logger: QtWidgets.QTextEdit | None = None,
             log_level: str | None = "ERROR"
     ):

@@ -244,7 +244,7 @@ class Ui_Form(object):
         self.label_2.setObjectName(u"label_2")
         self.label_2.setMinimumSize(QSize(20, 20))
         self.label_2.setMaximumSize(QSize(20, 20))
-        self.label_2.setPixmap(QPixmap(u"Resources/calculator/calculator.svg"))
+        self.label_2.setPixmap(QPixmap(u"icon/calculator.svg"))
         self.label_2.setScaledContents(True)
 
         self.gridLayout_2.addWidget(self.label_2, 0, 0, 1, 1)
@@ -395,7 +395,7 @@ class Ui_Form(object):
         self.negateButton.setFont(font)
         self.negateButton.setStyleSheet(u"qproperty-iconSize: 40px;")
         icon1 = QIcon()
-        icon1.addFile(u"Resources/calculator/plus-minus-variant.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon1.addFile(u"icon/plus-minus-variant.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.negateButton.setIcon(icon1)
         self.negateButton.setIconSize(QSize(40, 40))
 

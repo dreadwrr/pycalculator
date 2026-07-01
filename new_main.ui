@@ -304,7 +304,7 @@ QLabel {
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>Resources/calculator/calculator.svg</pixmap>
+         <pixmap>icon/calculator.svg</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -603,7 +603,7 @@ QLabel {
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>Resources/calculator/plus-minus-variant.svg</normaloff>Resources/calculator/plus-minus-variant.svg</iconset>
+          <normaloff>icon/plus-minus-variant.svg</normaloff>icon/plus-minus-variant.svg</iconset>
         </property>
         <property name="iconSize">
          <size>
