@@ -1,0 +1,863 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>945</width>
+    <height>864</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#closeButton {
+	background-color: #000;
+	
+	
+}
+#mrButton {
+	background-color: #000;
+	border: none;
+	
+}
+#mrButton:hover {
+	background-color: #555;
+	border: none;
+	
+}
+#mrButton:pressed {
+	background-color: #fff;
+	
+}
+
+#msButton {
+	background-color: #000;
+	border: none;
+	
+}
+
+#msButton:hover {
+	background-color: #555;
+	
+}
+#msButton:pressed {
+	background-color: #fff;
+	
+}
+#rndButton {
+	background-color: #000;
+	border: none;
+	
+}
+
+#rndButton:hover {
+	background-color: #555;
+	
+}
+#rndButton:pressed {
+	background-color: #fff;
+	
+}
+#angleButton{
+	background-color: #000;
+	border: none;
+}
+
+/* Styles for any QFrame and QMainWindow widgets to have a black background */
+QFrame {
+    background-color: #000000; /* Sets the background color to black */
+}
+
+QLabel {
+    font-size: 25px; /* Sets font size to 50 pixels */
+    font-family: &quot;Helvetica&quot;; /* Sets font family to Helvetica */
+ 	color: #fff;
+}
+
+/* Styles for the widget with objectName 'function_frame' */
+#function_frame {
+    border-bottom: 1px solid #333333; /* Sets a dark grey border, 2 pixels thick */
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+
+#function_frame QLineEdit {
+    background-color: #000000;
+    color: #888888;          /* dimmer grey, secondary emphasis */
+    border: none;
+    height: 40px;
+    padding: 5px 5px;
+    font-size: 32px;         /* smaller than main display */
+    font-family: &quot;Segoe UI&quot;;
+}
+
+#button_frame {
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+
+#button_frame QLineEdit {
+    background-color: #000000; /* Sets background color to black */
+    color: #FFF; /* Sets text color to white */
+    border: none;
+    height: 100px;
+    padding: 10px 5px;
+    font-size: 100px;
+    font-family: &quot;Segoe UI&quot;;
+}
+
+#button_frame QPushButton {
+    background-color: #333333; /* Sets button background to dark grey */
+    color: #FFF; /* Sets button text color to white */
+    font-size: 50px; /* Sets font size to 50 pixels */
+    font-family: &quot;Helvetica&quot;; /* Sets font family to Helvetica */
+    border-radius: 50%; /* Makes the button round */
+    width: 100px; /* Sets the button width */
+    height: 100px; /* Sets the button height */
+
+}
+
+#button_frame QPushButton:pressed {
+    background-color: #555; /* Darkens the button background when pressed */
+}
+
+#button_frame #zeroButton {
+    text-align: left; /* Aligns the text to the left */
+    padding-left: 35px; /* Adds left padding for the text inside the button */
+}
+
+#button_frame QPushButton[class=&quot;btn_group_1&quot;] {
+    background: #a5a5a5; /* Sets the background color to a light grey */
+    color: #020202; /* Sets the text color to a very dark grey (almost black) */
+    font-size: 45px; /* Sets the font size to 45 pixels */
+
+}
+
+#button_frame QPushButton[class=&quot;btn_group_1&quot;]:pressed {
+    background: #d6d6d6;
+}
+
+#button_frame QPushButton[class=&quot;btn_group_2&quot;] {
+    background-color: #ca3401; /* Sets the background color to a red-orange shade */
+    font-size: 60px; /* Sets the font size to 60 pixels */
+}
+
+/* #button_frame QPushButton[class=&quot;btn_group_2&quot;]:checked, */
+#button_frame QPushButton[class=&quot;btn_group_2&quot;]:pressed {
+    background-color: #fff;
+  	color: #ca3401;
+}
+
+#button_frame QPushButton[class=&quot;btn_group_3&quot;] {
+	background-color: #1C1C1C; /* Sets button background to dark grey */
+    font-size: 25px; /* Sets the font size to 60 pixels */
+	
+
+}
+
+#button_frame QPushButton[class=&quot;btn_group_3&quot;]:checked,
+#button_frame QPushButton[class=&quot;btn_group_3&quot;]:pressed {
+	background-color: #555;
+}</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_3">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <item row="0" column="0">
+    <widget class="QFrame" name="function_frame">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Shadow::Raised</enum>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <property name="leftMargin">
+       <number>20</number>
+      </property>
+      <property name="rightMargin">
+       <number>10</number>
+      </property>
+      <item row="0" column="4">
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="5">
+       <widget class="QPushButton" name="closeButton">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="6">
+       <widget class="QLineEdit" name="lineEdit2">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>1000 x</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QPushButton" name="angleButton">
+          <property name="minimumSize">
+           <size>
+            <width>31</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>DEG</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="msButton">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>MR</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="mrButton">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>MS</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="minimumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>Resources/calculator/calculator.svg</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Calculator</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Orientation::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QFrame" name="button_frame">
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Shadow::Raised</enum>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <property name="leftMargin">
+       <number>20</number>
+      </property>
+      <property name="topMargin">
+       <number>20</number>
+      </property>
+      <property name="rightMargin">
+       <number>20</number>
+      </property>
+      <property name="bottomMargin">
+       <number>20</number>
+      </property>
+      <property name="spacing">
+       <number>15</number>
+      </property>
+      <item row="3" column="3">
+       <widget class="QPushButton" name="logButton">
+        <property name="text">
+         <string>log</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="7">
+       <widget class="QPushButton" name="multiplicationButton">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>×</string>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>false</bool>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="2">
+       <widget class="QPushButton" name="piButton">
+        <property name="text">
+         <string>π</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="7">
+       <widget class="QPushButton" name="subtractionButton">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>﹣</string>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>false</bool>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="6">
+       <widget class="QPushButton" name="pushButton_9">
+        <property name="layoutDirection">
+         <enum>Qt::LayoutDirection::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>9</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QPushButton" name="powerButton">
+        <property name="text">
+         <string>xʸ</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="4">
+       <widget class="QPushButton" name="pushButton_1">
+        <property name="text">
+         <string>1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QPushButton" name="squareButton">
+        <property name="text">
+         <string>x²</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QPushButton" name="cosButton">
+        <property name="text">
+         <string>cos</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="6">
+       <widget class="QPushButton" name="pushButton_6">
+        <property name="text">
+         <string>6</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QPushButton" name="delButton">
+        <property name="text">
+         <string>⌫</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="4">
+       <widget class="QPushButton" name="pushButton_7">
+        <property name="text">
+         <string>7</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QPushButton" name="rootButton">
+        <property name="text">
+         <string>ʸ√x</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="7">
+       <widget class="QPushButton" name="equalsButton">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>=</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="4">
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="text">
+         <string>4</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="6">
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="text">
+         <string>3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="6">
+       <widget class="QPushButton" name="percentButton">
+        <property name="font">
+         <font>
+          <family>Helvetica</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>icon/percent-solid.svg</normaloff>icon/percent-solid.svg</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="6">
+       <widget class="QPushButton" name="pushButton_dec">
+        <property name="text">
+         <string>.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="sqrtButton">
+        <property name="text">
+         <string>√x</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="5">
+       <widget class="QPushButton" name="pushButton_8">
+        <property name="text">
+         <string>8</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QPushButton" name="cubeRootButton">
+        <property name="text">
+         <string>∛x</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="5">
+       <widget class="QPushButton" name="negateButton">
+        <property name="font">
+         <font>
+          <family>Helvetica</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">qproperty-iconSize: 40px;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>Resources/calculator/plus-minus-variant.svg</normaloff>Resources/calculator/plus-minus-variant.svg</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QPushButton" name="sinButton">
+        <property name="text">
+         <string>sin</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="3">
+       <widget class="QPushButton" name="tenPowerButton">
+        <property name="text">
+         <string>×10ˣ</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="functionButton">
+        <property name="text">
+         <string>2nd</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>false</bool>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="3">
+       <widget class="QPushButton" name="lnButton">
+        <property name="text">
+         <string>ln</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="7">
+       <widget class="QPushButton" name="divisionButton">
+        <property name="layoutDirection">
+         <enum>Qt::LayoutDirection::LeftToRight</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="locale">
+         <locale language="English" country="UnitedStatesOutlyingIslands"/>
+        </property>
+        <property name="text">
+         <string>÷</string>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>false</bool>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="4" colspan="2">
+       <widget class="QPushButton" name="zeroButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LayoutDirection::LeftToRight</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QPushButton" name="reciprocalButton">
+        <property name="text">
+         <string>1/x</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="2">
+       <widget class="QPushButton" name="eButton">
+        <property name="text">
+         <string>e</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QPushButton" name="openParenButton">
+        <property name="text">
+         <string>(</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="5">
+       <widget class="QPushButton" name="pushButton_5">
+        <property name="text">
+         <string>5</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="hypButton">
+        <property name="text">
+         <string>hyp</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>false</bool>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QPushButton" name="closeParenButton">
+        <property name="text">
+         <string>)</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="3">
+       <widget class="QPushButton" name="logBaseButton">
+        <property name="text">
+         <string>log₍y₎(x)</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="7">
+       <widget class="QPushButton" name="additionButton">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>+</string>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>false</bool>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="5">
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="text">
+         <string>2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="4">
+       <widget class="QPushButton" name="clearButton">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>AC</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QPushButton" name="tanButton">
+        <property name="text">
+         <string>tan</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>btn_group_3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="8">
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LayoutDirection::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>1,000</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
