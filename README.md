@@ -10,6 +10,6 @@ uses mpmath for arbitrary precision if installed <br>
 has exponent threshold <br>
 expression history view and logging <br><br>
 
-![Alt text](https://i.imgur.com/UG6QUqK.png)![Alt text](https://i.imgur.com/aTVRWqo.png) <br><br>
+![Alt text](https://i.imgur.com/UG6QUqK.png)  ![Alt text](https://i.imgur.com/aTVRWqo.png) <br><br>
 
 sourced from https://github.com/CodeQuestions/PyQt5-Video-Book <br>
