@@ -1,4 +1,4 @@
-qt python <br><br>
+qt python <br>
 # pycalculator
 07/01/2026 <br>
 scientific calculator made in Pyside pyqt in pyside6 <br>
