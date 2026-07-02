@@ -220,7 +220,7 @@ class SCalculator(QtWidgets.QWidget):
                 max_decimals = self.OUTPUT_LIMIT - 2
                 if decimals > max_decimals:
                     self.DECIMAL_DIGITS = max_decimals
-                    print(f"Max decimals set to {max_decimals} exceeded OUTPUT_LIMIT {self.OUTPUT_LIMIT} vs {decimals}")
+                    self.logger(f"Max decimals set to {max_decimals} exceeded OUTPUT_LIMIT {self.OUTPUT_LIMIT} vs {decimals}")
 
                 mpmath.mp.dps = self.DECIMAL_DIGITS + 30  # set decimal precision
             except ImportError:
@@ -621,15 +621,15 @@ class SCalculator(QtWidgets.QWidget):
 
         if text_length in self.FONT_SIZE_BY_LENGTH:
             self.output.setStyleSheet(f"font-size:{self.FONT_SIZE_BY_LENGTH.get(text_length)}px")
-            print("text len", text_length, "return size", self.FONT_SIZE_BY_LENGTH.get(text_length))
+            # print("text len", text_length, "return size", self.FONT_SIZE_BY_LENGTH.get(text_length))  # debug
             return
 
         if text_length >= 20:
             self.output.setStyleSheet(f"font-size:{self.MIN_FONT_SIZE}px")
-            print("min text len", text_length, "return size", self.MIN_FONT_SIZE)
+            # print("min text len", text_length, "return size", self.MIN_FONT_SIZE)  # debug
         else:
             self.output.setStyleSheet(f"font-size:{self.MAX_FONT_SIZE}px")
-            print("max text len", text_length, "return size", self.MAX_FONT_SIZE)
+            # print("max text len", text_length, "return size", self.MAX_FONT_SIZE)  #debug
 
     def mousePressEvent(self, event: QtGui.QMouseEvent):
         """ Enable window dragging with mouse press """
