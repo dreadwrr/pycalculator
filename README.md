@@ -12,6 +12,7 @@ expression history view and logging <br><br>
 
 ![Alt text](https://i.imgur.com/UG6QUqK.png)  ![Alt text](https://i.imgur.com/aTVRWqo.png) <br><br>
 
-sourced from https://github.com/CodeQuestions/PyQt5-Video-Book <br>
-
+sourced from CodeQuestions <br>
+https://github.com/CodeQuestions/PyQt5-Video-Book <br>
+https://forum.porteus.org/go.php?https://www.youtube.com/watch?v=2XdhmcyAnH0&t=65s <br><br>
 see also my pyside ![alarm clock](https://github.com/dreadwrr/pyqtalarm)
