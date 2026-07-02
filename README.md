@@ -11,11 +11,11 @@ has exponent threshold <br>
 expression history view and logging <br><br>
 
 
-`
+```
 if self.calculator is None:
   self.calculator = SCalculator(parent=None, mode="regular", sci_threshold=6, decimals=50, theme="block", history_view=False,
                                 rand_max=1000000, rand_min=0, logger=print, log_level="ERROR")
-`
+```
 
 ![Alt text](https://i.imgur.com/UG6QUqK.png)  ![Alt text](https://i.imgur.com/aTVRWqo.png) <br><br>
 
