@@ -10,11 +10,6 @@ uses mpmath for arbitrary precision if installed which can also use gmpy2 <br>
 has exponent threshold <br>
 expression history view and logging <br><br>
 
-    def __init__(
-            self, parent=None, mode="regular", sci_threshold=6, decimals=50, theme=None, history_view=False,
-            rand_max=9999999, rand_min=0, logger: QtWidgets.QTextEdit | None = None,
-            log_level: str | None = "ERROR"
-    ):
 
 `
 if self.calculator is None:
