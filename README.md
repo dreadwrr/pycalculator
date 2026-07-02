@@ -1,7 +1,7 @@
 qt python <br>
 # pycalculator
 07/01/2026 <br>
-scientific calculator made in Pyside pyqt in pyside6 <br>
+scientific calculator made in pyqt for pyside6 <br>
 testing on going but made public as a place to store source <br><br>
 
 two modes regular and scientific <br>
