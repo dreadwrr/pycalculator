@@ -1,4 +1,3 @@
-python qt pyside6 <br>
 # pycalculator
 07/01/2026 <br>
 scientific calculator <br>
@@ -6,7 +5,7 @@ testing on going but made public as a place to store source <br><br>
 
 two modes regular and scientific <br>
 alternative block theme <br>
-uses mpmath for arbitrary precision if installed which can also use gmpy2 <br>
+uses mpmath for arbitrary precision if installed which can also use gmpy2 package<br>
 has exponent threshold <br>
 expression history view and logging <br><br>
 
