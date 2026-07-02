@@ -10,8 +10,7 @@ uses mpmath for arbitrary precision if installed which can also use gmpy2 <br>
 has exponent threshold <br>
 expression history view and logging <br><br>
 
-
-```
+```python
 if self.calculator is None:
   self.calculator = SCalculator(parent=None, mode="regular", sci_threshold=6, decimals=50, theme="block", history_view=False,
                                 rand_max=1000000, rand_min=0, logger=print, log_level="ERROR")
