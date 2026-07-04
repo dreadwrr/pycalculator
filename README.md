@@ -1,7 +1,7 @@
 # pycalculator
 07/04/2026 <br>
 
-- added paste input and window popup
+- added paste input and window popup on invalid number
 
 scientific calculator <br>
 testing on going but made public as a place to store source <br><br>
