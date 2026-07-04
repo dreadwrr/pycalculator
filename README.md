@@ -1,5 +1,8 @@
 # pycalculator
-07/01/2026 <br>
+07/04/2026 <br>
+
+- added paste input and window popup
+
 scientific calculator <br>
 testing on going but made public as a place to store source <br><br>
 
