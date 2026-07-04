@@ -621,6 +621,7 @@ class SCalculator(QtWidgets.QWidget):
             return
 
         self.text = text
+        self.del_locked = False
         self.display_text()
 
     def memory_store(self):
