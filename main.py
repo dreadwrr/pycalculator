@@ -8,6 +8,23 @@ from new_main_ui import Ui_Form
 # 07/01/2026
 
 
+def window_message(parent, message, title="Status", default=True):  # ok
+    msg = QtWidgets.QMessageBox(parent)
+    msg.setStyleSheet("""
+    QFrame { background: palette(window); }
+    QLabel { background: transparent; color: palette(windowText); font-size: 18px; }
+    """)
+    if default:
+        msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+    else:
+        msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
+    msg.setWindowTitle(title)
+    msg.setText(message)
+    msg.setWindowIcon(QtGui.QIcon("./icon/48.png"))
+    msg.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
+    msg.exec()
+
+
 def str_to_mpmath(expression):
     """ enclose all numberical values in mpf() to retain precision if using mpmath """
     return re.sub(
@@ -594,6 +611,18 @@ class SCalculator(QtWidgets.QWidget):
         self.angle_mode = self.ANGLE_MODES[(idx + 1) % len(self.ANGLE_MODES)]
         self.ui.angleButton.setText(self.angle_mode)
 
+    def num_paste(self):
+        text = QtGui.QGuiApplication.clipboard().text()
+
+        try:
+            float(text)
+        except ValueError:
+            window_message(self, "Invalid number")
+            return
+
+        self.text = text
+        self.display_text()
+
     def memory_store(self):
         curr_text = self.output.text().replace(",", "")
         if curr_text == self.PI_DISPLAY:
@@ -795,6 +824,9 @@ class SCalculator(QtWidgets.QWidget):
             return
         elif event.key() in (QtCore.Qt.Key_Return, QtCore.Qt.Key_Enter, QtCore.Qt.Key_Equal):
             self.equals()
+            return
+        elif event.matches(QtGui.QKeySequence.StandardKey.Paste):
+            self.num_paste()
             return
         super().keyPressEvent(event)
 
