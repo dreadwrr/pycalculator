@@ -299,13 +299,13 @@ class SCalculator(QtWidgets.QWidget):
             icon = QtGui.QIcon(conf[0])
             btn.setIcon(icon)
             btn.setIconSize(QtCore.QSize(conf[1], conf[1]))
-
+        self.setFocus()
         self.ui.negateButton.setCheckable(True)
         self.ui.negateButton.setChecked(False)
         self.ui.angleButton.setText("DEG")
 
     def init_signal_slot(self):
-
+        self.output.setFocusPolicy(QtCore.Qt.FocusPolicy.NoFocus)
         self.output.textChanged.connect(self.clear_button_text)
         self.output.textChanged.connect(self.update_font_size)
 
@@ -665,6 +665,11 @@ class SCalculator(QtWidgets.QWidget):
         """ Enable window dragging with mouse press """
         if event.button() == QtCore.Qt.MouseButton.LeftButton:
             self._dragPos = event.globalPosition().toPoint()
+        # elif event.button() == QtCore.Qt.MouseButton.RightButton:
+        #     self._dragPos = None
+        #     local_pos = self.output.mapFrom(self, event.position().toPoint())
+        #     if self.output.rect().contains(local_pos):
+        #         self.output.selectAll()
 
     def mouseReleaseEvent(self, event: QtGui.QMouseEvent):
         """ Reset dragging position on mouse release """
@@ -826,7 +831,8 @@ class SCalculator(QtWidgets.QWidget):
         elif event.key() in (QtCore.Qt.Key_Return, QtCore.Qt.Key_Enter, QtCore.Qt.Key_Equal):
             self.equals()
             return
-        elif event.matches(QtGui.QKeySequence.StandardKey.Paste):
+        # output retains focus after right-click copy, which swallows Ctrl+V otherwise
+        elif QtWidgets.QApplication.focusWidget() is self.output or event.matches(QtGui.QKeySequence.StandardKey.Paste):
             self.num_paste()
             return
         super().keyPressEvent(event)
