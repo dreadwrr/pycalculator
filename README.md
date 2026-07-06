@@ -12,7 +12,7 @@ testing on going but made public as a place to store source <br><br>
 
 two modes regular and scientific <br>
 alternative block theme <br>
-uses mpmath for arbitrary precision if installed which can also use gmpy2 package<br>
+uses mpmath for arbitrary precision if installed which can also use gmpy2 package. to work at 70 decimal precision or above<br>
 has exponent threshold <br>
 expression history view and logging <br><br>
 
