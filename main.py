@@ -3,6 +3,7 @@ import mpmath
 import random
 import re
 import sys
+from functools import partial
 from PySide6 import QtWidgets, QtCore, QtGui
 from new_main_ui import Ui_Form
 # 07/01/2026
@@ -317,6 +318,9 @@ class SCalculator(QtWidgets.QWidget):
         self.ui.closeButton.clicked.connect(self.close)
         self.ui.delButton.clicked.connect(self.backspace)
 
+        self.ui.button_frame.setContextMenuPolicy(QtCore.Qt.ContextMenuPolicy.CustomContextMenu)
+        self.ui.button_frame.customContextMenuRequested.connect(self.button_frame_alt_menu)
+
         # Connect all button clicks to main calculate method
         btn_list = self.ui.button_frame.findChildren(QtWidgets.QPushButton)
         for btn in btn_list:
@@ -394,7 +398,8 @@ class SCalculator(QtWidgets.QWidget):
             "ln": math.log,
             "pi": math.pi,
             "e": math.e,
-            "fact": math.factorial
+            "fact": math.factorial,
+            "rndg": random.gauss
         }
 
     def build_namespace_mpmath(self):
@@ -421,7 +426,8 @@ class SCalculator(QtWidgets.QWidget):
             "ln": lambda x: mpmath.log(mpmath.mpf(x)),
             "pi": mpmath.pi,
             "e": mpmath.e,
-            "fact": mpmath.factorial
+            "fact": mpmath.factorial,
+            "rndg": self.rndg_mpmath
         }
 
     def fwd_trig(self, func):
@@ -481,6 +487,14 @@ class SCalculator(QtWidgets.QWidget):
     def sqr_mpmath(self, x):
         x = mpmath.mpf(x)
         return x ** 2
+
+    def rndg_mpmath(self, mu, sigma):
+        mu = mpmath.mpf(mu)
+        sigma = mpmath.mpf(sigma)
+        u1 = mpmath.rand()
+        u2 = mpmath.rand()
+        z = mpmath.sqrt(-2 * mpmath.log(u1)) * mpmath.cos(2 * mpmath.pi * u2)
+        return mu + sigma * z
 
     # return an integer let mpmath handle scientific
     # then for float check if it fits on screen otherwise use scientific
@@ -680,6 +694,13 @@ class SCalculator(QtWidgets.QWidget):
         if event.buttons() == QtCore.Qt.MouseButton.LeftButton and self._dragPos:
             self.move(self.pos() + event.globalPosition().toPoint() - self._dragPos)
             self._dragPos = event.globalPosition().toPoint()
+
+    def button_frame_alt_menu(self, _pos):
+        menu = QtWidgets.QMenu(self)
+        menu.addAction("rnd", partial(self.random, "RAND"))
+        menu.addAction("rndint", partial(self.random, "RNDINT"))
+        menu.addAction("rndg", partial(self.random, "RNDG"))
+        menu.exec(self.ui.button_frame.mapToGlobal(_pos))
 
     def logline_out(self, text, logger, log_level):
         if log_level and log_level == "DEBUG":
@@ -928,6 +949,8 @@ class SCalculator(QtWidgets.QWidget):
             )
 
         resolved = resolve_operand(resolved, "logbase", lambda x, y: f"logbase({x},{y})", self.eval_namespace, self.is_mpmath)
+        
+        resolved = resolve_operand(resolved, "rndg", lambda x, y: f"rndg({x},{y})", self.eval_namespace, self.is_mpmath)
 
         resolved = resolve_percent_chains(resolved, self.is_mpmath, self.logger)  # percent modulo
 
@@ -1160,15 +1183,22 @@ class SCalculator(QtWidgets.QWidget):
             self.text = "0"
         self.display_text()
 
-    def random(self):
-        if self.ui.rndButton.text() == "RANDINT":
-            self.text = str(random.randint(self.rand_min, self.rand_max))
-            # digits = random.randint(1, 16)
-            # self.text = str(random.randint(0, 10**digits - 1))
+    def random(self, kind):
+
+        if kind == "RNDG":
+            self.commit_pending_operand("rndg")
+            self.expression.setText(self.display_expression())
+
         else:
-            self.text = str(mpmath.rand()) if self.is_mpmath else str(random.random())
-        self.del_locked = False
-        self.display_text()
+            if kind == "RAND":
+                self.text = str(mpmath.rand()) if self.is_mpmath else str(random.random())
+                # digits = random.randint(1, 16)
+                # self.text = str(random.randint(0, 10**digits - 1))
+            elif kind == "RNDINT":
+                self.text = str(random.randint(self.rand_min, self.rand_max))
+
+            self.del_locked = False
+            self.display_text()
 
     def percent(self):
         curr_text = self.output.text().replace(",", "")
