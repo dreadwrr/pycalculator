@@ -1,7 +1,8 @@
 # pycalculator
 07/08/2026
 
-- added on right click rnd rndint and rndg for gaussian <br><br>
+- added on right click rnd rndint and rndg for gaussian. these are alt functions like probability ect and
+keeps the ui cleaner <br><br>
 
 07/04/2026 <br>
 - added paste input and window popup on invalid number
