@@ -178,6 +178,8 @@ class SCalculator(QtWidgets.QWidget):
         "tan": "tan", "atan": "tan⁻¹", "tanh": "tanh", "atanh": "tanh⁻¹",
     }
 
+    complete = QtCore.Signal()
+
     def __init__(
             self, parent=None, mode="regular", sci_threshold=6, decimals=50, theme=None, history_view=False,
             rand_max=9999999, rand_min=0, logger: QtWidgets.QTextEdit | None = None,
@@ -230,7 +232,6 @@ class SCalculator(QtWidgets.QWidget):
             self.OUTPUT_LIMIT = 24
             self.MIN_FONT_SIZE = 30
             ranges = self.FONT_SIZE_RANGES
-            self.is_mpmath = False
         else:
             ranges = self.FONT_SIZE_RANGES_MP
             try:
@@ -241,6 +242,7 @@ class SCalculator(QtWidgets.QWidget):
                     self.logger(f"Max decimals set to {max_decimals} exceeded OUTPUT_LIMIT {self.OUTPUT_LIMIT} vs {decimals}")
 
                 mpmath.mp.dps = self.DECIMAL_DIGITS + 30  # set decimal precision
+                self.is_mpmath = True
             except ImportError:
                 self.is_mpmath = False
 
@@ -313,7 +315,6 @@ class SCalculator(QtWidgets.QWidget):
         self.ui.angleButton.clicked.connect(self.cycle_angle_mode)
         self.ui.mrButton.clicked.connect(self.memory_store)
         self.ui.msButton.clicked.connect(self.memory_recall)
-        # self.ui.rndButton.clicked.connect(self.random)  # for rnd rndno rndg
 
         self.ui.closeButton.clicked.connect(self.close)
         self.ui.delButton.clicked.connect(self.backspace)
@@ -339,7 +340,7 @@ class SCalculator(QtWidgets.QWidget):
         self.ui.piButton.setStyleSheet("""
             font-family: "Segoe UI";
         """)
-
+        # theme = "block"
         if theme == "block":
             self.ui.button_frame.layout().setSpacing(5)
             self.ui.button_frame.setStyleSheet(
@@ -367,7 +368,6 @@ class SCalculator(QtWidgets.QWidget):
             # self.ui.angleButton.hide()
             # self.ui.mrButton.hide()
             # self.ui.msButton.hide()
-            # self.ui.rndButton.hide()
 
             self.ui.lineEdit.setFixedWidth(445)
             self.resize(445, 600)  # self.adjustSize() #  stretches buttons
@@ -694,6 +694,10 @@ class SCalculator(QtWidgets.QWidget):
         if event.buttons() == QtCore.Qt.MouseButton.LeftButton and self._dragPos:
             self.move(self.pos() + event.globalPosition().toPoint() - self._dragPos)
             self._dragPos = event.globalPosition().toPoint()
+
+    def closeEvent(self, event):
+        self.complete.emit()
+        super().closeEvent(event)
 
     def button_frame_alt_menu(self, _pos):
         menu = QtWidgets.QMenu(self)
@@ -1223,14 +1227,12 @@ class SCalculator(QtWidgets.QWidget):
     def function(self, state):
 
         if state:
-            # self.ui.rndButton.setText("RANDINT")
             self.ui.squareButton.setText("2ˣ")
             self.ui.logBaseButton.setText("n!")
             self.ui.logButton.setText("log₂")
             self.ui.lnButton.setText("eˣ")
             self.ui.tenPowerButton.setText("10ˣ")
         else:
-            # self.ui.rndButton.setText("RAND")
             self.ui.squareButton.setText("x²")
             self.ui.logBaseButton.setText("log(y)(x)")
             self.ui.logButton.setText("log")
