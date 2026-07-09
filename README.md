@@ -1,8 +1,9 @@
 # pycalculator
 
-- Added saved_history
+- Added support for up to 150 decimal precision. 180 working precision.
+- Added saved history
 - Finished debug mode
-- Added helper functions for changing theme and printing current history
+- Added helper functions for changing theme, decimal precision and getting current history
 
 07/08/2026
 
