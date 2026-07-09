@@ -1,4 +1,9 @@
 # pycalculator
+
+- Added saved_history
+- Finished debug mode
+- Added helper functions for changing theme and printing current history
+
 07/08/2026
 
 - added on right click rnd rndint and rndg for gaussian. these are alt functions like probability ect and
