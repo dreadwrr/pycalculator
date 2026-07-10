@@ -1,20 +1,21 @@
 # pycalculator
 
-- Added support for up to 150 decimal precision. 180 working precision.
+This calculator will be updated from my main application as any bugs are discovered. <br><br>
+Note: current working on output formatting for precision < 55 for linux currently testing <br><br>
+
+- Added support for 150 decimal precision. 180 working precision.
 - Added saved history
 - Finished debug mode
 - Added helper functions for changing theme, decimal precision and getting current history
 
 07/08/2026
 
-- added on right click rnd rndint and rndg for gaussian. these are alt functions like probability ect and
-keeps the ui cleaner <br><br>
+- added on right click rnd rndint and rndg for gaussian. these are alt functions like probability ect to keeps the ui cleaner <br><br>
 
 07/04/2026 <br>
 - added paste input and window popup on invalid number
 
 scientific calculator <br>
-testing on going but made public as a place to store source <br><br>
 
 two modes regular and scientific <br>
 alternative block theme <br>
