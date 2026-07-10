@@ -403,7 +403,7 @@ QLabel {
          <string notr="true"/>
         </property>
         <property name="text">
-         <string>﹣</string>
+         <string>-</string>
         </property>
         <property name="checkable">
          <bool>false</bool>

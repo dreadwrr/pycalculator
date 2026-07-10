@@ -541,7 +541,7 @@ class Ui_Form(object):
         self.multiplicationButton.setProperty(u"class", QCoreApplication.translate("Form", u"btn_group_2", None))
         self.piButton.setText(QCoreApplication.translate("Form", u"\u03c0", None))
         self.piButton.setProperty(u"class", QCoreApplication.translate("Form", u"btn_group_3", None))
-        self.subtractionButton.setText(QCoreApplication.translate("Form", u"\ufe63", None))
+        self.subtractionButton.setText(QCoreApplication.translate("Form", u"-", None))
         self.subtractionButton.setProperty(u"class", QCoreApplication.translate("Form", u"btn_group_2", None))
         self.pushButton_9.setText(QCoreApplication.translate("Form", u"9", None))
         self.powerButton.setText(QCoreApplication.translate("Form", u"x\u02b8", None))
