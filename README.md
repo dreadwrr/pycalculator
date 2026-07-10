@@ -1,6 +1,6 @@
 # pycalculator
 
-This calculator will be updated from my main application as any bugs are discovered. <br><br>
+This calculator is from my main application and will be updated as any bugs are discovered. <br><br>
 Note: current working on output formatting for precision < 55 for linux currently testing <br><br>
 
 - Added support for 150 decimal precision. 180 working precision.
