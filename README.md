@@ -2,7 +2,7 @@
 
 This calculator is from my main application and will be updated as any bugs are discovered. <br>
 - Format adjusted for both linux and windows
-- Added support for 150 decimal precision. 180 working precision.
+- Added support for 150 decimal precision. The calculator always works with 30 over decimal precision
 - Added saved history
 - Finished debug mode
 - Added helper functions for changing theme, decimal precision and getting current history
@@ -17,6 +17,7 @@ This calculator is from my main application and will be updated as any bugs are 
 scientific calculator <br>
 
 two modes regular and scientific <br>
+regular mode uses floats which are 14 to 15 decimals
 alternative block theme <br>
 uses mpmath for arbitrary precision if installed which can also use gmpy2 package. to work at 70 decimal precision or above<br>
 has exponent threshold <br>
