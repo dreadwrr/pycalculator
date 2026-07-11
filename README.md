@@ -17,7 +17,7 @@ This calculator is from my main application and will be updated as any bugs are 
 scientific calculator <br>
 
 two modes regular and scientific <br>
-regular mode uses floats which are 14 to 15 decimals
+regular mode uses floats which are 14 to 15 decimals <br><br>
 alternative block theme <br>
 uses mpmath for arbitrary precision if installed which can also use gmpy2 package. to work at 70 decimal precision or above<br>
 has exponent threshold <br>
