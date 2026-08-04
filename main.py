@@ -46,15 +46,13 @@ class SCalculator(QtWidgets.QWidget):
     FLOAT_SIG_DIGITS = 14
     DECIMAL_DIGITS = 55
     DECIMAL_MAX = 150
-    OUTPUT_LIMIT = 57  # 57 chars at font size 35 scientific. 24 chars at font size 25 regular Windows
-    #              60  # Linux                
+    OUTPUT_LIMIT = 57  # 57 chars at font size 35 scientific. 24 chars at font size 25 regular              
     
 
     SCI_THRESHOLD = 10
 
     MAX_FONT_SIZE = 100
-    MIN_FONT_SIZE = 25  # 25 for scientific 30 for regular Windows  
-    #                     20 for scientific ? for regular Linux                     
+    MIN_FONT_SIZE = 25  # 25 for scientific # 30 for regular                
 
     # it was found that linear sizing didnt work as smaller text fits more digits than before
     # so need to use two maps one for regular and one for scientific
@@ -72,6 +70,7 @@ class SCalculator(QtWidgets.QWidget):
         (24, 24, 30),
 
     ]
+
     FONT_SIZE_RANGES_MP = [
         (9, 9, 90),
         (10, 10, 80),
@@ -197,7 +196,7 @@ class SCalculator(QtWidgets.QWidget):
 
         if mode == "regular":
             self.OUTPUT_LIMIT = 24
-            self.MIN_FONT_SIZE = 30  # Windows # 24 Linux
+            self.MIN_FONT_SIZE = 30
             ranges = self.FONT_SIZE_RANGES
 
         else:
@@ -271,12 +270,6 @@ class SCalculator(QtWidgets.QWidget):
             icon = QtGui.QIcon(conf[0])
             btn.setIcon(icon)
             btn.setIconSize(QtCore.QSize(conf[1], conf[1]))
-
-        """ prevent buttons from defaulting which would break the enter key since it would not call equals """
-        for btn in self.ui.button_frame.findChildren(QtWidgets.QPushButton):
-            btn.setFocusPolicy(QtCore.Qt.FocusPolicy.NoFocus)
-            # btn.setAutoDefault(False)
-            # btn.setDefault(False)
 
         self.setFocus()
         self.ui.negateButton.setCheckable(True)
@@ -854,6 +847,7 @@ class SCalculator(QtWidgets.QWidget):
     def keyPressEvent(self, event):
         key_text = event.text()
         # exit on ctrl-c
+        # print("keyPressEvent", self.sender(), QtWidgets.QApplication.focusWidget())  # debug
         if event.key() == QtCore.Qt.Key.Key_C and event.modifiers() & QtCore.Qt.KeyboardModifier.ControlModifier:
             QtWidgets.QApplication.quit()
             sys.exit(0)
@@ -1241,9 +1235,6 @@ class SCalculator(QtWidgets.QWidget):
         except Exception as e:
             self.logger(f"error in sub expression: \n {sub_expr!r} -> {e}")
 
-        except Exception as e:
-            self.logger(f"error in sub expression: \n {sub_expr!r} -> {e}")
-
     def open_paren(self):
 
         if not self.del_locked and self.output.text().replace(",", ""):
@@ -1304,6 +1295,8 @@ class SCalculator(QtWidgets.QWidget):
         else:
             if kind == "RAND":
                 self.text = str(mpmath.rand()) if self.is_mpmath else str(random.random())
+                # 08/03/2026 to fit on screen slice
+                self.text = self.text[:self.OUTPUT_LIMIT + 2]
                 # digits = random.randint(1, 16)
                 # self.text = str(random.randint(0, 10**digits - 1))
             elif kind == "RNDINT":
@@ -1429,3 +1422,22 @@ if __name__ == '__main__':
     window = SCalculator()
     window.show()
     sys.exit(app.exec())
+
+
+# Notes:
+# def format_dms(value):
+#     sign = "-" if value < 0 else ""
+#     value = abs(value)
+#     degrees = int(value)
+#     rem = (value - degrees) * 60
+#     minutes = int(rem)
+#     rem = (rem - minutes) * 60
+#     seconds = round(rem)
+#     if seconds == 60:
+#         seconds = 0
+#         minutes += 1
+#     if minutes == 60:
+#         minutes = 0
+#         degrees += 1
+
+#     return f"{sign}{degrees}°{minutes:02d}'{seconds:02d}\""
