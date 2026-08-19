@@ -9,7 +9,7 @@ This calculator is from my main application and will be updated as any bugs are 
 
 08/16/2026
 - fixed bug with negate button ln 894
-07/08/2026
+07/08/2026 <br>
 - added on right click rnd rndint and rndg for gaussian. these are alt functions like probability ect to keeps the ui cleaner <br><br>
 07/04/2026 <br>
 - added paste input and window popup on invalid number
