@@ -7,8 +7,8 @@ This calculator is from my main application and will be updated as any bugs are 
 - Finished debug mode
 - Added helper functions for changing theme, decimal precision and getting current history
 
-08/16/2026
-- fixed bug with negate button ln 894 <br>
+08/16/2026 <br>
+- fixed bug with negate button ln 894 <br><br>
 07/08/2026 <br>
 - added on right click rnd rndint and rndg for gaussian. these are alt functions like probability ect to keeps the ui cleaner <br><br>
 07/04/2026 <br>
