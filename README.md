@@ -1,16 +1,16 @@
 # pycalculator
 
-This calculator is from my main application and will be updated as any bugs are discovered. <br>
+This calculator is from my main application and will be updated as any bugs are discovered <br>
 - Format adjusted for both linux and windows
 - Added support for 150 decimal precision. The calculator then uses 30 over decimal precision
 - Added saved history
 - Finished debug mode
 - Added helper functions for changing theme, decimal precision and getting current history
 
+08/16/2026
+- fixed bug with negate button ln 894
 07/08/2026
-
 - added on right click rnd rndint and rndg for gaussian. these are alt functions like probability ect to keeps the ui cleaner <br><br>
-
 07/04/2026 <br>
 - added paste input and window popup on invalid number
 
