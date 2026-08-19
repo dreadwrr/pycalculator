@@ -891,7 +891,9 @@ class SCalculator(QtWidgets.QWidget):
                 self.text = char
             self.last_expression = None
             self.del_locked = False
+            self.ui.negateButton.blockSignals(True)
             self.ui.negateButton.setChecked(False)
+            self.ui.negateButton.blockSignals(False)
         # or append
         else:
             if char == "." and "." in self.text:
