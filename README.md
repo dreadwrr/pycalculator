@@ -1,6 +1,6 @@
 # pycalculator
 
-This calculator is from my main application and will be updated as any bugs are discovered <br>
+This calculator is from my main application and will be updated when bugs are discovered <br>
 - Format adjusted for both linux and windows
 - Added support for 150 decimal precision. The calculator then uses 30 over decimal precision
 - Added saved history
