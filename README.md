@@ -2,7 +2,7 @@
 
 This calculator is from my main application and will be updated when bugs are discovered <br>
 - Format adjusted for both linux and windows
-- Added support for 150 decimal precision. The calculator then uses 30 over decimal precision
+- Added support for up to 150 decimal precision. The calculator works 30 above precision
 - Added saved history
 - Finished debug mode
 - Added helper functions for changing theme, decimal precision and getting current history
