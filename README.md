@@ -7,6 +7,8 @@ This calculator is from my main application and will be updated when bugs are di
 - Finished debug mode
 - Added helper functions for changing theme, decimal precision and getting current history
 
+09/12/2026 <br>
+fixed when after pressing operator the . button works properly. It wouldnt after pressing an operator button. <br>
 08/16/2026 <br>
 fixed bug with negate button ln 894 <br>
 07/08/2026 <br>
