@@ -883,12 +883,21 @@ class SCalculator(QtWidgets.QWidget):
         # new
         if self.del_locked:
 
-            if char == "." and "." not in self.text:
-                self.text = "0."
-            elif char == ".":
-                return
-            else:
-                self.text = char
+            # commented out on 09/12/2026
+            # original
+            # if char == "." and "." not in self.text:
+            #     self.text = "0."
+            # elif char == ".":
+            #     return
+            # else:
+            #     self.text = char
+            if self.del_locked:
+
+                if char == ".":
+                    self.text = "0."
+                else:
+                    self.text = char
+
             self.last_expression = None
             self.del_locked = False
             self.ui.negateButton.blockSignals(True)
