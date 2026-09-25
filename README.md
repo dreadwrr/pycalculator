@@ -1,5 +1,5 @@
 # pycalculator
-
+last updated: 09/24/2026 <br>
 This calculator is from my main application and will be updated when bugs are discovered <br>
 - Format adjusted for both linux and windows
 - Added support for up to 150 decimal precision. The calculator works 30 decimals above this.
