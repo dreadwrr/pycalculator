@@ -7,15 +7,6 @@ This calculator is from my main application and will be updated when bugs are di
 - Finished debug mode
 - Added helper functions for changing theme, decimal precision and getting current history
 
-09/12/2026 <br>
-fixed when after pressing operator the . button works properly. It wouldnt after pressing an operator button. <br>
-08/16/2026 <br>
-fixed bug with negate button ln 894 <br>
-07/08/2026 <br>
-added on right click rnd rndint and rndg for gaussian. these are alt functions like probability ect to keeps the ui cleaner <br>
-07/04/2026 <br>
-added paste input and window popup on invalid number <br>
-
 scientific calculator <br>
 
 two modes regular and scientific. regular mode uses floats which are 14 to 15 decimals. scientific uses mpmath for arbitrary precision if installed which can also use gmpy2 package. to work at 70 decimal precision or above  <br>
@@ -30,6 +21,19 @@ if self.calculator is None:
                                 saved_history="", rand_max=1000000, rand_min=0, logger=print, log_level="ERROR")
 ```
 ![Alt text](https://i.imgur.com/UG6QUqK.png)  ![Alt text](https://i.imgur.com/aTVRWqo.png) <br><br>
+
+# change history
+
+09/24/2026 <br>
+when a result is truncated to fit the display the full precision is stored if working off the answer.
+09/12/2026 <br>
+fixed when after pressing operator the . button works properly. It wouldnt after pressing an operator button. <br>
+08/16/2026 <br>
+fixed bug with negate button ln 894 <br>
+07/08/2026 <br>
+added on right click rnd rndint and rndg for gaussian. these are alt functions like probability ect to keeps the ui cleaner <br>
+07/04/2026 <br>
+added paste input and window popup on invalid number <br><br>
 
 sourced from CodeQuestions <br>
 https://github.com/CodeQuestions/PyQt5-Video-Book <br>
