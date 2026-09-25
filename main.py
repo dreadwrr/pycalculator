@@ -6,7 +6,7 @@ import sys
 from functools import partial
 from PySide6 import QtWidgets, QtCore, QtGui
 from new_main_ui import Ui_Form
-# 07/10/2026
+# 09/24/2026
 
 
 def window_message(parent, message, title="Status", default=True):  # ok
@@ -188,6 +188,11 @@ class SCalculator(QtWidgets.QWidget):
 
         # shown above display
         self.expression_text = ""
+
+        self.value = None
+        self.result = None
+        self.is_truncated = False
+
         # what gets displayed on main display line edit
         self.text = ""
 
@@ -509,18 +514,6 @@ class SCalculator(QtWidgets.QWidget):
     # then for float check if it fits on screen otherwise use scientific
     def get_mpmath_scientific(self, val):
 
-        # original design
-        # if val == int(val):
-        #   int_str = str(int(val))
-        #   if len(int_str) > self.OUTPUT_LIMIT:
-
-        #       exp = len(int_str.lstrip('-')) - 1  # exp = mpmath.floor(mpmath.log10(abs(val)))  # by magnitude
-        #       exp_len = len(f"e+{int(exp)}")  # account for notation chars
-
-        #       sig_digits = max(self.OUTPUT_LIMIT - exp_len - sign_len - dec_len, 1)
-        #       return mpmath.nstr(val, sig_digits, strip_zeros=True, min_fixed=0, max_fixed=0)
-        #   return str(int(val))
-
         # int
         if val == mpmath.floor(val):
             sign_len = 1 if val < 0 else 0
@@ -566,6 +559,9 @@ class SCalculator(QtWidgets.QWidget):
                 max_fixed=1e9,
             )
 
+            if len(str(val)) > sig_digits:
+                self.is_truncated = True
+
             if len(fixed) <= self.OUTPUT_LIMIT:
                 return fixed
 
@@ -577,6 +573,18 @@ class SCalculator(QtWidgets.QWidget):
             min_fixed=0,
             max_fixed=0
         )
+
+        # original design
+        # if val == int(val):
+        #   int_str = str(int(val))
+        #   if len(int_str) > self.OUTPUT_LIMIT:
+
+        #       exp = len(int_str.lstrip('-')) - 1  # exp = mpmath.floor(mpmath.log10(abs(val)))  # by magnitude
+        #       exp_len = len(f"e+{int(exp)}")  # account for notation chars
+
+        #       sig_digits = max(self.OUTPUT_LIMIT - exp_len - sign_len - dec_len, 1)
+        #       return mpmath.nstr(val, sig_digits, strip_zeros=True, min_fixed=0, max_fixed=0)
+        #   return str(int(val))
 
     # if used later with log on closed paren for type casting
     def wrap_mpf(self, curr_text):
@@ -593,6 +601,8 @@ class SCalculator(QtWidgets.QWidget):
         return round(value, decimal_places)
 
     def format_number(self, value):
+
+        self.is_truncated = False
 
         if self.is_mpmath:
             val = mpmath.mpf(value)  # account for negative char
@@ -615,7 +625,7 @@ class SCalculator(QtWidgets.QWidget):
             return "0"
 
         rounded = self._round_sig(number_float, self.FLOAT_SIG_DIGITS)
-
+        self.is_truncated = (rounded != number_float)
         abs_val = abs(rounded)
         exp = math.floor(math.log10(abs_val))  # this replaces "leading zeros"
 
@@ -997,8 +1007,10 @@ class SCalculator(QtWidgets.QWidget):
         return text
 
     def commit_pending_operand(self, suffix):
+
         curr_text = self.load_current_value()
         expression = curr_text + suffix
+
         self.expression_text += expression
         if suffix == "%":
             self.last_expression = expression
@@ -1019,8 +1031,11 @@ class SCalculator(QtWidgets.QWidget):
         self.expression.setText(self.display_expression())
 
     def handle_function_input(self, func_name, display_symbol=None, template="{symbol}({arg})"):
+
         symbol = display_symbol or func_name
         curr_text = self.output.text().replace(",", "")
+        
+        # modulo or other function
         if self.del_locked and self.expression_text and self.expression_text[-1] in "%)":
             old_last = self.last_expression if self.last_expression else curr_text
 
@@ -1030,12 +1045,14 @@ class SCalculator(QtWidgets.QWidget):
 
             self.expression_text = f"{prefix}{self.last_expression}"
 
+        # normal
         else:
             # auto multiply
             if not self.del_locked and self.expression_text and curr_text and self.expression_text[-1] not in "+-*/(":
                 if not self.last_expression:
                     self.expression_text += "*"
-            arg = curr_text
+
+            arg = curr_text  # the number and precision
 
             self.last_expression = template.format(symbol=symbol, arg=arg)
 
@@ -1079,6 +1096,7 @@ class SCalculator(QtWidgets.QWidget):
     def equals(self):
 
         curr_text = self.load_current_value()
+
         resolved_expression = ""
         step = ""
 
@@ -1119,8 +1137,9 @@ class SCalculator(QtWidgets.QWidget):
 
                     # auto multiply
                     if self.expression_text and self.expression_text[-1] in ")" and curr_text:
-
                         full_expression = self.expression_text + "*" + curr_text
+
+                    # normal
                     else:
                         full_expression = self.expression_text + curr_text
 
@@ -1128,6 +1147,12 @@ class SCalculator(QtWidgets.QWidget):
             if self.expression_text and self.expression_text[-1] in "+-*/":
                 self.last_operator = self.expression_text[-1]
                 self.last_operand = curr_text
+
+        # pass in full precision if operating on a previous result
+
+        if self.value and self.is_truncated:
+
+            full_expression = full_expression.replace(self.result, self.value, 1)
 
         self.logline_out(full_expression, self.logger, self.log_level)
 
@@ -1138,6 +1163,7 @@ class SCalculator(QtWidgets.QWidget):
             # swap out necessary symbols and conventions for eval
 
             step = "substiting"
+
             resolved_expression = self.substitute_expression(full_expression)
 
             self.logline_out(resolved_expression, self.logger, self.log_level)
@@ -1146,10 +1172,13 @@ class SCalculator(QtWidgets.QWidget):
 
             result = eval(resolved_expression, {"__builtins__": {}}, self.eval_namespace)
 
-            self.expression_text = full_expression + "="
-
             step = "format"
-            self.text = self.format_number(result)
+            self.value = str(result)  # store full precision
+
+            self.text = self.format_number(result)  # truncate the value for display
+            self.result = self.text
+
+            self.expression_text = full_expression + "="
 
             # show result
 
@@ -1270,6 +1299,9 @@ class SCalculator(QtWidgets.QWidget):
         self.last_expression = ""
         self.last_operator = None
         self.last_operand = None
+        self.value = None  # 09/22/2026
+        self.result = None
+        self.is_truncated = False  # 09/24/2026
 
         self.expression_text = ""
         self.expression.clear()
@@ -1321,6 +1353,8 @@ class SCalculator(QtWidgets.QWidget):
 
         value = mpmath.mpf(curr_text) / 100 if self.is_mpmath else float(curr_text) / 100
         self.text = self.format_number(value)
+        if self.value is not None:
+            self.value = self.value / 100
         self.display_text()
 
     # checkable
@@ -1330,6 +1364,8 @@ class SCalculator(QtWidgets.QWidget):
                 self.text = f"-{self.output.text()}".replace(",", "")
             else:
                 self.text = self.output.text()[1:].replace(",", "")
+            if self.value is not None:
+                self.value = -self.value
             self.display_text()
 
     # checkable toggles
