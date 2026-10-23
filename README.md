@@ -17,8 +17,8 @@ expression history view and logging <br><br>
 
 ```python
 if self.calculator is None:
-  self.calculator = SCalculator(parent=None, mode="scientific", sci_threshold=6, decimals=51, theme="block", history_view=False,
-                                saved_history="", rand_max=1000000, rand_min=0, logger=print, log_level="ERROR")
+  self.calculator = SCalculator(appdata_local="", mode="scientific", sci_threshold=6, decimals=51, theme="block", history_view=False,
+                                saved_history="", rand_max=1000000, rand_min=0, logger=print, log_level="ERROR", parent=None)
 ```
 ![Alt text](https://i.imgur.com/UG6QUqK.png)  ![Alt text](https://i.imgur.com/aTVRWqo.png) <br><br>
 
