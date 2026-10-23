@@ -155,7 +155,7 @@ class SCalculator(QtWidgets.QWidget):
     complete = QtCore.Signal()
 
     def __init__(
-            self, appdata_local="", mode="scientific", sci_threshold=6, decimals=51, theme=None, history_view=False,
+            self, appdata_local="", mode="regular", sci_threshold=6, decimals=51, theme=None, history_view=False,
             saved_history="", rand_max=9999999, rand_min=0, logger: QtWidgets.QTextEdit | None = None,
             log_level: str | None = "ERROR", parent=None
     ):
