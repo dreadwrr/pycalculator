@@ -1,5 +1,6 @@
 # pycalculator
 last updated: 10/22/2026 <br>
+New update! plan to add custom images for +-*/ on next update. Also considering adding DMS and <->DEG at the top <br><br>
 This calculator is from my main application and will be updated when bugs are discovered <br>
 - Format adjusted for both linux and windows
 - Added support for up to 150 decimal precision. The calculator works 30 decimals above this.
