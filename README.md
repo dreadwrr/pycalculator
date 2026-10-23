@@ -26,9 +26,9 @@ if self.calculator is None:
 
 10/22/2026 <br>
 Added convention recursion for logbase root and rndg. Added preview_log list to tokenize expression which can used for a custom parser
-without going through eval. Added other bug fixes.
+without going through eval. Added other bug fixes. <br>
 09/24/2026 <br>
-when a result is truncated to fit the display the full precision is stored if working off the answer.
+when a result is truncated to fit the display the full precision is stored if working off the answer. <br>
 09/12/2026 <br>
 fixed when after pressing operator the . button works properly. It wouldnt after pressing an operator button. <br>
 08/16/2026 <br>
