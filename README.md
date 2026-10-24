@@ -21,7 +21,7 @@ if self.calculator is None:
   self.calculator = SCalculator(appdata_local="", mode="scientific", sci_threshold=6, decimals=51, theme="block", history_view=False,
                                 saved_history="", rand_max=1000000, rand_min=0, logger=print, log_level="ERROR", parent=None)
 ```
-![Alt text](https://i.imgur.com/UG6QUqK.png)  ![Alt text](https://i.imgur.com/aTVRWqo.png) <br><br>
+![Alt text](https://i.imgur.com/jGhKhsg.png)  ![Alt text](https://i.imgur.com/nD1HNnL.png) <br><br>
 
 # change history
 10/24/2026 <br>
