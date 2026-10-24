@@ -1,6 +1,6 @@
 # pycalculator
-last updated: 10/22/2026 <br>
-New update! plan to add custom images for +-*/ on next update. Also considering adding DMS and <->DEG at the top <br><br>
+last updated: 10/24/2026 <br>
+New update! Also considering adding DMS and <->DEG at the top <br><br>
 This calculator is from my main application and will be updated when bugs are discovered <br>
 - Format adjusted for both linux and windows
 - Added support for up to 150 decimal precision. The calculator works 30 decimals above this.
@@ -24,7 +24,8 @@ if self.calculator is None:
 ![Alt text](https://i.imgur.com/UG6QUqK.png)  ![Alt text](https://i.imgur.com/aTVRWqo.png) <br><br>
 
 # change history
-
+10/24/2026 <br>
+Added divide, multiply, subtract, add and equals svg icons for proper positioning as text was misaligned. <br>
 10/22/2026 <br>
 Added convention recursion for logbase root and rndg. Added preview_log list to tokenize expression which can used for a custom parser
 without going through eval. Added other bug fixes. <br>
