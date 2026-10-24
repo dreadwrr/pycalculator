@@ -25,7 +25,7 @@ if self.calculator is None:
 
 # change history
 10/24/2026 <br>
-Added divide, multiply, subtract, add and equals svg icons for proper positioning as text was misaligned. <br>
+Added divide, multiply, subtract, add and equals icons for proper positioning as text was misaligned. <br>
 10/22/2026 <br>
 Added convention recursion for logbase root and rndg. Added preview_log list to tokenize expression which can used for a custom parser
 without going through eval. Added other bug fixes. <br>
