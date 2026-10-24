@@ -262,8 +262,8 @@ class SCalculator(QtWidgets.QWidget):
 
         # Map operator buttons to symbols
         self.operator_btn_list = [
-            (self.ui.additionButton, "+"),
-            (self.ui.subtractionButton, "-"),
+            (self.ui.additionButton, "+"),  # + ascii  values =
+            (self.ui.subtractionButton, "-"),  # -
             (self.ui.multiplicationButton, "*"),  # ×
             (self.ui.divisionButton, "/"),  # ÷
         ]
@@ -276,8 +276,17 @@ class SCalculator(QtWidgets.QWidget):
             self.ui.closeButton: [self.resources + "/close.svg", 30],
             self.ui.negateButton: [self.resources + "/plus-minus-variant.svg", 40],
             self.ui.percentButton: [self.resources + "/percent-solid.svg", 50],
+            self.ui.divisionButton: [self.resources + "/divide.svg", 50],
+            self.ui.multiplicationButton: [self.resources + "/multi.svg", 50],
+            self.ui.subtractionButton: [self.resources + "/sub.svg", 50],
+            self.ui.additionButton: [self.resources + "/add.svg", 50],
+            self.ui.equalsButton: [self.resources + "/equal.svg", 50],
         }
+        # self.ui.divisionButton.setText("")
+        # self.ui.multiplicationButton.setText("÷")
         # end of update where self.resources was added
+
+        #
 
         self.initialize_ui()
 

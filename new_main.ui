@@ -374,7 +374,13 @@ QLabel {
          <string notr="true"/>
         </property>
         <property name="text">
-         <string>×</string>
+         <string/>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
         </property>
         <property name="checkable">
          <bool>false</bool>
@@ -403,7 +409,13 @@ QLabel {
          <string notr="true"/>
         </property>
         <property name="text">
-         <string>-</string>
+         <string/>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
         </property>
         <property name="checkable">
          <bool>false</bool>
@@ -503,7 +515,13 @@ QLabel {
          <string notr="true"/>
         </property>
         <property name="text">
-         <string>=</string>
+         <string/>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
         </property>
         <property name="class" stdset="0">
          <string>btn_group_2</string>
@@ -674,7 +692,13 @@ QLabel {
          <locale language="English" country="UnitedStatesOutlyingIslands"/>
         </property>
         <property name="text">
-         <string>÷</string>
+         <string/>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
         </property>
         <property name="checkable">
          <bool>false</bool>
@@ -785,7 +809,13 @@ QLabel {
          <string notr="true"/>
         </property>
         <property name="text">
-         <string>+</string>
+         <string/>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
         </property>
         <property name="checkable">
          <bool>false</bool>
